@@ -1,0 +1,26 @@
+import random
+
+import math
+
+
+class Simulation:
+    def __init__(self):
+        self.x = 50 + random.random() * 1000
+        self.y = 50 + random.random() * 800
+        self.gravityf = random.random() * 0.5
+        self.speedx = pow(random.random(), 2) * 50 - 25
+        self.speedy = pow(random.random(), 2) * 50 - 25
+        self.air_density = pow(0.1, random.random() * 4 + 1)
+
+    def calc_air_res(self):
+        speed = math.sqrt(pow(self.speedx, 2) + pow(self.speedy, 2))
+        force = pow(speed, 2) * self.air_density
+        a = force / speed
+        self.speedx /= (1 + a)
+        self.speedy /= (1 + a)
+
+    def update(self):
+        self.x += self.speedx
+        self.y += self.speedy
+        self.speedy += self.gravityf
+        self.calc_air_res()
