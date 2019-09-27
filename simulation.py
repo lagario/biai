@@ -5,11 +5,11 @@ import math
 
 class Simulation:
     def __init__(self):
-        self.x = 50 + random.random() * 1000
-        self.y = 50 + random.random() * 800
+        self.x = 300 + random.random() * 600
+        self.y = 300 + random.random() * 400
         self.gravityf = random.random() * 0.5
-        self.speedx = pow(random.random(), 2) * 50 - 25
-        self.speedy = pow(random.random(), 2) * 50 - 25
+        self.speedx = pow(random.random(), 2) * 40 - 20
+        self.speedy = pow(random.random(), 2) * 40 - 20
         self.air_density = pow(0.1, random.random() * 4 + 1)
 
     def calc_air_res(self):
